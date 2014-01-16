@@ -96,7 +96,7 @@ angularFileUpload.service('$upload', ['$http', '$rootScope', '$timeout', functio
 		
 		if (Object.prototype.toString.call(config.file) === '[object Array]') {
 			for (var i = 0; i < config.file.length; i++) {
-				formData.append(fileFromName + i, config.file[i], config.file[i].name);
+				formData.append((config.fileFormDataName[i] || 'file' + i), config.file[i], config.file[i].name);
 			}
 		} else {
 			formData.append(fileFromName, config.file, config.file.name);
